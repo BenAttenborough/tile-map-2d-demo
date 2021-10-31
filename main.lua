@@ -5,8 +5,12 @@ require 'libs.tilemap2d.MapEditor'
 
 require 'StateMachine'
 require 'states.BaseState'
+require 'states.MenuState'
 require 'states.PlayState'
+require 'states.EditState'
 require 'configs.global'
+
+require 'objects.Button'
 
 function love.update(dt)
     gStateMachine:update(dt)
@@ -40,9 +44,11 @@ function love.load()
     MapEditor = MapEditor(tileConfig)
     
     gStateMachine = StateMachine {
+        ['menu'] = function() return MenuState() end,
         ['play'] = function() return PlayState() end,
+        ['edit'] = function() return EditState() end,
     }
-    gStateMachine:change('play', {})
+    gStateMachine:change('menu', {})
 end
 
 function love.draw()
