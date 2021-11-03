@@ -1,4 +1,4 @@
-push = require 'libs.push'
+Push = require 'libs.push'
 Class = require 'libs.class'
 require 'libs.tilemap2d.tilemap2d'
 require 'libs.tilemap2d.MapEditor'
@@ -9,56 +9,45 @@ require 'states.MenuState'
 require 'states.PlayState'
 require 'states.EditState'
 require 'configs.global'
-
 require 'objects.Button'
-require 'objects.ButtonA'
 
 function love.update(dt)
-    gStateMachine:update(dt)
+    StateMachine:update(dt)
 end
 
 function love.load()
-    love.graphics.setDefaultFilter('nearest', 'nearest')
-    gFonts = {
-        ['small'] = love.graphics.newFont('fonts/font.ttf', 8),
-        ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
-        ['large'] = love.graphics.newFont('fonts/font.ttf', 32)
-    }
-    local tileConfig = {}
-    tileConfig['map'] = map
-    tileConfig['spriteSheet'] = 'sprites/tilemap.png'
-    tileConfig['spriteSize'] = {}
-    tileConfig['spriteSize']['width'] = 10
-    tileConfig['spriteSize']['height'] = 10
-    tileConfig['spriteCount'] = 4
-    tileConfig['offsetX'] = 20
-    tileConfig['offsetY'] = 50
-    -- Tilemap2d = TileMap2d(tileConfig)
+    -- Setup graphics
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.window.setTitle('My game')    
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
+    Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
         resizable = true,
         vsync = true
     })
 
-    MapEditor = MapEditor(tileConfig)
+    -- Setup fonts
+    Fonts = {
+        ['small'] = love.graphics.newFont('fonts/font.ttf', 8),
+        ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
+        ['large'] = love.graphics.newFont('fonts/font.ttf', 32)
+    }
     
-    gStateMachine = StateMachine {
+    -- Setup state machine
+    StateMachine = StateMachine {
         ['menu'] = function() return MenuState() end,
         ['play'] = function() return PlayState() end,
         ['edit'] = function() return EditState() end,
     }
-    gStateMachine:change('menu', {})
+    StateMachine:change('menu', {})
 end
 
 function love.draw()
-    push:apply('start')
-    gStateMachine:render()
-    push:apply('end')
+    Push:apply('start')
+    StateMachine:render()
+    Push:apply('end')
 end
 
 function love.mousereleased(x, y, button)
-    local screenX, screenY = push:toGame(x,y)
-    gStateMachine:mousereleased(screenX, screenY, button)
+    local screenX, screenY = Push:toGame(x,y)
+    StateMachine:mousereleased(screenX, screenY, button)
 end

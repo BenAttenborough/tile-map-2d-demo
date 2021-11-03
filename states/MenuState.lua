@@ -3,14 +3,14 @@ MenuState = Class{__includes = BaseState}
 require 'objects.Button'
 
 function MenuState:init()
-    self.playButton = Button(20,200,100,14,'Play',self.switchToPlayState)
-    self.editButton = Button(20,225,100,14,'Edit',self.switchToEditState)
+    self.playButton = Button(20,200,100,14,'Play','switchToPlayState',self)
+    self.editButton = Button(20,225,100,14,'Edit','switchToEditState',self)
     self.prevMouseDown = false
 end
 
 function MenuState:update(dt)
     if love.mouse.isDown(1) and not self.prevMouseDown then
-        local x,y = push:toGame(love.mouse.getX(), love.mouse.getY())
+        local x,y = Push:toGame(love.mouse.getX(), love.mouse.getY())
         self.playButton:mouseClick(x, y, 1)
         self.editButton:mouseClick(x, y, 1)
     end
@@ -26,11 +26,11 @@ function MenuState:exit() end
 
 
 function MenuState:switchToPlayState()
-    gStateMachine:change('play', {})
+    StateMachine:change('play', {})
 end
 
 function MenuState:switchToEditState()
-    gStateMachine:change('edit', {})
+    StateMachine:change('edit', {})
 end
 
 function MenuState:mousereleased(x, y, button)

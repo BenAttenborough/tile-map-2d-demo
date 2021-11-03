@@ -3,16 +3,15 @@ EditState = Class{__includes = BaseState}
 require 'libs.tilemap2d.tilemap2d'
 
 function EditState:init()
-    print("EditState Init")
     self.prevMouseDown = false
     self.mapLoaded = false
-    self.loadButton = ButtonA(20,200,100,14,'Load','load',self)
-    self.saveButton = Button(20,225,100,14,'Save',self.save)
+    self.loadButton = Button(20,200,100,14,'Load','load',self)
+    self.saveButton = Button(20,225,100,14,'Save','save',self)
 end
 
 function EditState:update(dt)
     if love.mouse.isDown(1) and not self.prevMouseDown then
-        local x,y = push:toGame(love.mouse.getX(), love.mouse.getY())
+        local x,y = Push:toGame(love.mouse.getX(), love.mouse.getY())
         self.loadButton:mouseClick(x, y, 1)
         self.saveButton:mouseClick(x, y, 1)
     end
