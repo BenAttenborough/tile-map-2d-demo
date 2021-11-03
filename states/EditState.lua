@@ -6,8 +6,8 @@ function EditState:init()
     print("EditState Init")
     self.prevMouseDown = false
     self.mapLoaded = false
-    self.loadButton = ButtonA(20,200,100,14,'Load','load',self)
-    self.saveButton = Button(20,225,100,14,'Save',self.save)
+    self.loadButton = Button(20,200,100,14,'Load','load',self)
+    self.saveButton = Button(20,225,100,14,'Save','save',self)
 end
 
 function EditState:update(dt)

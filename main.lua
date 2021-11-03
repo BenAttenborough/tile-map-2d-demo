@@ -9,9 +9,7 @@ require 'states.MenuState'
 require 'states.PlayState'
 require 'states.EditState'
 require 'configs.global'
-
 require 'objects.Button'
-require 'objects.ButtonA'
 
 function love.update(dt)
     StateMachine:update(dt)

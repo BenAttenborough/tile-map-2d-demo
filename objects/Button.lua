@@ -24,8 +24,7 @@ end
 
 function Button:mousereleased(x, y, button)
     if self.clicked == true and button == 1 and x >= self.left and x <= self.right and y >= self.top and y <= self.bottom then
-        self:clickHandler()
-        -- self.boundObj["load"]()
+        self.boundObj[self.clickHandler](self.boundObj)
     end
     self.clicked = false
 end
