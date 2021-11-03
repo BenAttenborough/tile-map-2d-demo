@@ -3,7 +3,6 @@ EditState = Class{__includes = BaseState}
 require 'libs.tilemap2d.tilemap2d'
 
 function EditState:init()
-    print("EditState Init")
     self.prevMouseDown = false
     self.mapLoaded = false
     self.loadButton = Button(20,200,100,14,'Load','load',self)
