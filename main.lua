@@ -11,6 +11,7 @@ require 'states.EditState'
 require 'configs.global'
 
 require 'objects.Button'
+require 'objects.ButtonA'
 
 function love.update(dt)
     gStateMachine:update(dt)
@@ -32,7 +33,7 @@ function love.load()
     tileConfig['spriteCount'] = 4
     tileConfig['offsetX'] = 20
     tileConfig['offsetY'] = 50
-    Tilemap2d = TileMap2d(tileConfig)
+    -- Tilemap2d = TileMap2d(tileConfig)
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.window.setTitle('My game')    
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {

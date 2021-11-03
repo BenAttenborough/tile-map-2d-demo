@@ -11,7 +11,6 @@ end
 function MenuState:update(dt)
     if love.mouse.isDown(1) and not self.prevMouseDown then
         local x,y = push:toGame(love.mouse.getX(), love.mouse.getY())
-        -- handle click
         self.playButton:mouseClick(x, y, 1)
         self.editButton:mouseClick(x, y, 1)
     end
@@ -25,9 +24,6 @@ end
 
 function MenuState:exit() end
 
-function MenuState:mousereleased(x, y, button)
-    MapEditor:mousereleased(x, y, button)
-end
 
 function MenuState:switchToPlayState()
     gStateMachine:change('play', {})
