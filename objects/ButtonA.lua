@@ -24,9 +24,7 @@ end
 
 function ButtonA:mousereleased(x, y, button)
     if self.clicked == true and button == 1 and x >= self.left and x <= self.right and y >= self.top and y <= self.bottom then
-        -- self:clickHandler()
         self.boundObj[self.clickHandler](self.boundObj)
-        print("AA clickHandler: ", self.clickHandler)
     end
     self.clicked = false
 end
