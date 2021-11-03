@@ -18,7 +18,7 @@ end
 
 function Button:draw()
     love.graphics.rectangle('line', self.left, self.top, self.width, self.height)
-    love.graphics.setFont(gFonts['medium'])
+    love.graphics.setFont(Fonts['medium'])
     love.graphics.print(self.label, self.left + 2, self.top)
 end
 

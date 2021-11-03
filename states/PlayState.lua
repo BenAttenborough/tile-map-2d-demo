@@ -6,7 +6,7 @@ end
 
 function PlayState:update(dt)
     if love.mouse.isDown(1) and not self.prevMouseDown then
-        local x,y = push:toGame(love.mouse.getX(), love.mouse.getY())
+        local x,y = Push:toGame(love.mouse.getX(), love.mouse.getY())
         Tilemap2d:detectClick(x, y, 1)
         MapEditor:click(x, y, 1)
     end

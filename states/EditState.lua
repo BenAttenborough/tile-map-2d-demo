@@ -12,7 +12,7 @@ end
 
 function EditState:update(dt)
     if love.mouse.isDown(1) and not self.prevMouseDown then
-        local x,y = push:toGame(love.mouse.getX(), love.mouse.getY())
+        local x,y = Push:toGame(love.mouse.getX(), love.mouse.getY())
         self.loadButton:mouseClick(x, y, 1)
         self.saveButton:mouseClick(x, y, 1)
     end
