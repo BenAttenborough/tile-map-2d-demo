@@ -1,7 +1,6 @@
 Push = require 'libs.push'
 Class = require 'libs.class'
 require 'libs.tilemap2d.tilemap2d'
-require 'libs.tilemap2d.MapEditor'
 
 require 'StateMachine'
 require 'states.BaseState'
