@@ -20,6 +20,7 @@ end
 function MenuState:render()
     self.playButton:draw()
     self.editButton:draw()
+    love.graphics.rectangle("line", 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 end
 
 function MenuState:exit() end

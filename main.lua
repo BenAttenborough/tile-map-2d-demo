@@ -52,3 +52,7 @@ function love.mousereleased(x, y, button)
     local screenX, screenY = Push:toGame(x,y)
     StateMachine:mousereleased(screenX, screenY, button)
 end
+
+function love.resize(w, h)
+    Push:resize(w, h)
+  end
