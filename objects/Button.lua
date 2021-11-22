@@ -34,3 +34,5 @@ function Button:mouseClick(x, y, button)
         self.clicked = true
     end
 end
+
+return Button

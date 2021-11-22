@@ -2,13 +2,15 @@ Push = require 'libs.push'
 Class = require 'libs.class'
 require 'libs.tilemap2d.tilemap2d'
 
+-- States are global
 require 'StateMachine'
 require 'states.BaseState'
 require 'states.MenuState'
-require 'states.PlayState'
+-- require 'states.PlayState'
 require 'states.EditState'
+
+-- Global config
 require 'configs.global'
-require 'objects.Button'
 
 function love.update(dt)
     StateMachine:update(dt)

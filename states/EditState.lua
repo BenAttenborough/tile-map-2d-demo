@@ -1,6 +1,6 @@
 EditState = Class{__includes = BaseState}
 
-require 'libs.tilemap2d.editor.MapEditor'
+local MapEditor = require 'libs.tilemap2d.editor.MapEditor'
 
 function EditState:init()
     self.MapEditor = MapEditor()

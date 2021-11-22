@@ -1,6 +1,6 @@
 MenuState = Class{__includes = BaseState}
 
-require 'objects.Button'
+local Button = require 'objects.Button'
 
 function MenuState:init()
     self.playButton = Button(20,200,100,14,'Play','switchToPlayState',self)
@@ -37,3 +37,5 @@ function MenuState:mousereleased(x, y, button)
     self.playButton:mousereleased(x, y, button)
     self.editButton:mousereleased(x, y, button)
 end
+
+return MenuState
