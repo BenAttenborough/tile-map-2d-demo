@@ -3,8 +3,8 @@ MenuState = Class{__includes = BaseState}
 local Button = require 'objects.Button'
 
 function MenuState:init()
-    self.playButton = Button(20,200,100,14,'Play','switchToPlayState',self)
-    self.editButton = Button(20,225,100,14,'Edit','switchToEditState',self)
+    self.playButton = Button(20,200,100,16,'Play','switchToPlayState',self)
+    self.editButton = Button(20,227,100,16,'Edit','switchToEditState',self)
     self.prevMouseDown = false
 end
 

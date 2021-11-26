@@ -28,7 +28,7 @@ function love.load()
 
     -- Setup fonts
     Fonts = {
-        ['small'] = love.graphics.newFont('fonts/font.ttf', 8),
+        ['small'] = love.graphics.newFont('fonts/font.ttf', 12),
         ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
         ['large'] = love.graphics.newFont('fonts/font.ttf', 32)
     }
